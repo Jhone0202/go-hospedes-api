@@ -67,8 +67,8 @@ func UpdateHospede(context *gin.Context) {
 		return
 	}
 
-	var input models.Hospede
-	var bindErr = context.ShouldBindJSON(&input)
+	var input map[string]interface{}
+	bindErr := context.ShouldBindJSON(&input)
 	if bindErr != nil {
 		context.JSON(http.StatusBadRequest, gin.H{"error": bindErr.Error()})
 	}
