@@ -8,11 +8,13 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func main(){
+func main() {
 	config.Connect()
 	models.Migate(config.DB)
 
 	engine := gin.Default()
+	engine.LoadHTMLGlob("templates/*")
+	engine.Static("/static", "./static")
 	routes.SetupRoutes(engine)
 
 	engine.Run(":8080")

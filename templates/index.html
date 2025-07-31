@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>API de Hóspedes</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🏨 API de Hóspedes</h1>
+        <p>Bem-vindo à API! 🚀</p>
+        <p>Abaixo estão os endpoints disponíveis:</p>
+
+        <ul>
+            <li onclick="copyRoute(this, '/api/hospedes')">
+                <code class="get">GET</code> /api/hospedes
+                <span class="toast"></span>
+                <span> –> Listar todos </span>
+            </li>
+            <li onclick="copyRoute(this, '/api/hospedes/paginated?page=1&limit=5')">
+                <code class="get">GET</code> /api/hospedes/paginated?page=1&limit=5
+                <span class="toast"></span>
+                <span> –> Paginação </span>
+            </li>
+            <li onclick="copyRoute(this, '/api/hospedes/:id')">
+                <code class="get">GET</code> /api/hospedes/:id
+                <span class="toast"></span>
+                <span> –> Buscar por ID </span>
+            </li>
+            <li onclick="copyRoute(this, '/api/hospedes')">
+                <code class="post">POST</code> /api/hospedes
+                <span class="toast"></span>
+                <span> –> Criar novo </span>
+            </li>
+            <li onclick="copyRoute(this, '/api/hospedes/:id')">
+                <code class="put">PUT</code> /api/hospedes/:id
+                <span class="toast"></span>
+                <span> –> Atualizar </span>
+            </li>
+            <li onclick="copyRoute(this, '/api/hospedes/:id')">
+                <code class="del">DELETE</code> /api/hospedes/:id
+                <span class="toast"></span>
+                <span> –> Remover </span>
+            </li>
+        </ul>
+
+        <p style="color: var(--muted-color); margin-top: 30px;">
+            Clique em uma rota para copiá-la ✂️
+        </p>
+    </div>
+
+    <script>
+    function copyRoute(element, text) {
+        navigator.clipboard.writeText(text).then(() => {
+        const toast = element.querySelector(".toast");
+        toast.textContent = "Copiado!";
+        toast.classList.add("show");
+
+        setTimeout(() => {
+            toast.classList.remove("show");
+            toast.textContent = "";
+        }, 2000);
+        });
+    }
+    </script>
+</body>
+</html>

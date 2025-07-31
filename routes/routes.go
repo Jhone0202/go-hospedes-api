@@ -7,6 +7,8 @@ import (
 )
 
 func SetupRoutes(r *gin.Engine) {
+	r.GET("/", controllers.Wellcome)
+
 	api := r.Group("/api/hospedes")
 	{
 		api.POST("/", controllers.CreateHospede)

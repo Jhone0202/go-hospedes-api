@@ -1,0 +1,81 @@
+:root {
+  --bg-color: #0a0a0a;
+  --text-color: #fafafa;
+  --muted-color: #888;
+  --accent: #ffffff;
+  --code-bg: #1a1a1a;
+  --code-radius: 6px;
+  --font-code: monospace;
+  --post-color: #cd56d6;
+  --get-color: #8dd656;
+  --del-color: #f06e56;
+  --put-color: #d69956;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: 'Inter', system-ui, sans-serif;
+  padding: 40px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  max-width: 700px;
+  width: 100%;
+  background-color: #111;
+  padding: 40px;
+  border-radius: 12px;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: var(--accent);
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 20px;
+  gap: 4px;
+  display: flex;
+  flex-direction: column
+}
+
+li {
+  margin: 10px 0;
+  font-size: 15px;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+li:hover {
+  opacity: 0.85;
+}
+
+code {
+  background: var(--code-bg);
+  padding: 5px 8px;
+  border-radius: var(--code-radius);
+  font-family: var(--font-code);
+  margin-right: 8px;
+}
+
+code.post { color: var(--post-color); }
+code.get  { color: var(--get-color); }
+code.del  { color: var(--del-color); }
+code.put  { color: var(--put-color); }
+
+.toast {
+  color: var(--muted-color);
+  font-size: 13px;
+  margin-left: 10px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.toast.show {
+  opacity: 1;
+}
